@@ -182,6 +182,15 @@ class FreeNom
                         'cookies' => $this->jar
                     ]);
                 } catch (\Exception $e) {
+                    Mail::send(
+                        '错误，Freedom续期请求出错',
+                        [
+                            $this->username,
+                            $e->getMessage()
+                        ],
+                        '',
+                        'notice'
+                    );
                     system_log(sprintf('%s：续期请求出错：%s', $this->username, $e->getMessage()));
                     continue;
                 }
