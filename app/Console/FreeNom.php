@@ -233,7 +233,7 @@ class FreeNom
             ));
             system_log(sprintf("%s：续期结果如下：\n%s", $this->username, $result));
         } else {
-            if (config('noticeFreq') == 1 || ((config('noticeFreq') == 2) && (date("d")=="18"))) {
+            if (config('noticeFreq') == 1 || ((config('noticeFreq') == 2) && (date("d")=="18" || date("d")=="1"))) {
                 Mail::send(
                     '报告，今天没有域名需要续期',
                     [
